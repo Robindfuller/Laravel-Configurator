@@ -1,4 +1,4 @@
-# User Customisable App Config
+# User Customisable and Persistent App Config Options
 
 This Laravel package provides a convenient way to save custom configuration options within your Laravel application. Once saved all custom options then override those in the main app config and can be accessed using the standard `Illuminate\Contracts\Config\Repository` instance or `\Config` Facade as shown below:
 

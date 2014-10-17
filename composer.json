@@ -1,6 +1,6 @@
 {
     "name": "fuller/laravel-configurator",
-    "description": "User Customisable App Config Options",
+    "description": "User Customisable and Persistent App Config Options",
     "authors": [
         {
             "name": "Robin Fuller",

@@ -63,8 +63,8 @@ All custom config options are written to a .php file. By default this is kept in
 
 Q. Why save to a file and not to a database?
 
-A. Saving to a file means that the package can also be used to save custom database options. This very useful if you application has an installation form.
+A. Saving to a file means that the package can also be used to save custom database options. This very useful if your application has an installation form.
 
-Q. Can I call the class directly for testing purposes.
+Q. Can I call the class directly for testing purposes?
 
 A. Yes but you must pass the `Illuminate\Contracts\Config\Repository` instance into the constructor. This is just my first draft and soon I'll release a version where you don't need to do this.

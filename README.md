@@ -28,7 +28,7 @@ Once this operation completes, the final step is to add the service provider. Op
 
 ## Usage
 
-All usage can be done by using the '\Configure' facade. Please remember that this package is only instended for saving custom config options. You will use the standard \Config::get($key) upon the next request to use the custom options.
+All usage can be done by using the '\Configure' facade. Please remember that this package is only intended for saving custom config options. You will use the standard \Config::get($key) upon the next request to use the custom options.
 
 ###Setting
 

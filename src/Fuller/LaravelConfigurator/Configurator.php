@@ -1,0 +1,127 @@
+<?php namespace Fuller\LaravelConfigurator;
+
+use Illuminate\Contracts\Config\Repository;
+
+/**
+ * Class Configurator
+ *
+ * @package Fuller\LaravelConfigurator
+ */
+class Configurator implements ConfiguratorInterface
+{
+
+    /**
+     * Config repository instance
+     *
+     * @var Repository
+     */
+    protected $appConfigRepo;
+
+    /**
+     * Storage file path
+     *
+     * The storage file is a standard .php file that returns a key value array when included.
+     * Example content: <?php return ['site.title'=>'Cool Site','mail.type'=>'smtp']'.
+     *
+     * @var string
+     */
+    protected $storageFile;
+
+    /**
+     * Currently loaded config key value array
+     *
+     * Example ['site.title'=>'Cool Site','mail.type'=>'smtp']
+     *
+     * @var array
+     */
+    protected $configArray;
+
+    /**
+     * @param Repository $appConfigRepo
+     */
+    public function __construct(Repository $appConfigRepo)
+    {
+        $this->appConfigRepo = $appConfigRepo;
+
+        $this->storageFile = $this->appConfigRepo->get(
+            'laravel-configurator::config.storage_file');
+    }
+
+
+    /**
+     * Load config array from set storage file
+     *
+     * @return $this
+     */
+    public function load()
+    {
+
+        $this->configArray = [];
+
+        if(file_exists($this->storageFile))
+        {
+            $this->configArray = include $this->storageFile;
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * Set config in loaded config array. Will not apply them to the set config repo.
+     *
+     * @param $key
+     * @param $value
+     * @return $this
+     */
+    public function set($key, $value)
+    {
+        if(is_array($key))
+        {
+            foreach($key as $k=>$value)
+            {
+                $this->set($k, $value);
+            }
+            return;
+        }
+
+        $this->configArray[$key] = $value;
+
+        return $this;
+    }
+
+
+    /**
+     * Apply loaded config array to set config repo
+     *
+     * @return $this
+     */
+    public function apply()
+    {
+        if(is_array($this->configArray))
+        {
+            foreach($this->configArray as $key=>$value)
+            {
+                $this->appConfigRepo->set($key, $value);
+            }
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * Save loaded config array to storage file
+     *
+     * @return void
+     */
+    public function save()
+    {
+        $content = '<?php return ' . var_export($this->configArray, true) . ';';
+        $bytesSaved = file_put_contents($this->storageFile, $content);
+    }
+
+
+
+
+} 

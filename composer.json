@@ -1,0 +1,21 @@
+{
+    "name": "fuller/laravel-configurator",
+    "description": "User Customisable App Config Options",
+    "authors": [
+        {
+            "name": "Robin Fuller",
+            "email": "robin.dfuller@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "classmap": [
+        ],
+        "psr-0": {
+            "Fuller\\LaravelConfigurator\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

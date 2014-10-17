@@ -1,14 +1,14 @@
-# User Customisable App Config Options
+# User Customisable App Config
 
-This Laravel package provides a convenient way to save custom configuration options within your Laravel application. Once saved all custom options then overide those in the main app config and can be accessed using the standard Illuminate\Contracts\Config\Repository instance or \Config Facade as shown below:
+This Laravel package provides a convenient way to save custom configuration options within your Laravel application. Once saved all custom options then override those in the main app config and can be accessed using the standard `Illuminate\Contracts\Config\Repository` instance or `\Config` Facade as shown below:
 
 	\Config::get($key);
 
-This is especially useful for many applications that use a low level admin panel to confiure an app via a form.
+This is especially useful for many applications that feature a low level admin panel to configure an app via a web form.
 
 ## Requirements
 
-This package uses Illuminate\Contracts\Config\Repository which I believe is only available in the Laravel 5.
+This package uses `Illuminate\Contracts\Config\Repository` which I believe is only available in the Laravel 5.
 
 ## Installation
 
@@ -28,7 +28,7 @@ Once this operation completes, the final step is to add the service provider. Op
 
 ## Usage
 
-All usage can be done by using the '\Configure' facade. Please remember that this package is only intended for saving custom config options. You will use the standard \Config::get($key) upon the next request to use the custom options.
+All usage can be done by using the '\Configure' facade. Please remember that this package is only intended for saving custom config options. You will use the standard `\Config::get($key)` upon the next request to use the custom options.
 
 ###Setting
 
@@ -67,4 +67,4 @@ A. Saving to a file means that the package can also be used to save custom datab
 
 Q. Can I call the class directly for testing purposes.
 
-A. Yes but you must pass the Illuminate\Contracts\Config\Repository instance into the constructor. This is just my first draft and soon I'll release a verison where you don't need to do this.
+A. Yes but you must pass the `Illuminate\Contracts\Config\Repository` instance into the constructor. This is just my first draft and soon I'll release a version where you don't need to do this.

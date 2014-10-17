@@ -3,7 +3,7 @@
 use Illuminate\Contracts\Config\Repository;
 
 /**
- * Custom configuration library interface for use with
+ * Custom configuration interface for use with
  * Laravel's Config repository class
  *
  * Interface ConfiguratorInterface
@@ -13,7 +13,7 @@ interface ConfiguratorInterface
 {
 
     /**
-     * Load and apply custom config
+     * Load and apply custom config options
      *
      * @param Repository $appConfigRepo Config repository instance
      */
@@ -21,14 +21,14 @@ interface ConfiguratorInterface
 
 
     /**
-     * Load/reload config from storage
+     * Load/reload config options from storage
      *
      * @return instance
      */
     public function load();
 
     /**
-     * Set custom value of config
+     * Set custom config option. Does not apply to application config.
      *
      * @param $key
      * @param $value
@@ -38,14 +38,14 @@ interface ConfiguratorInterface
 
 
     /**
-     * Apply the loaded settings to application config
+     * Apply the loaded options to application config
      *
      * @return instance
      */
     public function apply();
 
     /**
-     * Save loaded config array to storage
+     * Save loaded options array to storage
      *
      * @return mixed
      */

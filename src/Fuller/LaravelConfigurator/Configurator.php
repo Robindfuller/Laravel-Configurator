@@ -28,7 +28,7 @@ class Configurator implements ConfiguratorInterface
     protected $storageFile;
 
     /**
-     * Currently loaded config key value array
+     * Currently loaded config options
      *
      * Example ['site.title'=>'Cool Site','mail.type'=>'smtp']
      *
@@ -49,7 +49,7 @@ class Configurator implements ConfiguratorInterface
 
 
     /**
-     * Load config array from set storage file
+     * Load config options from set storage file
      *
      * @return $this
      */
@@ -68,7 +68,7 @@ class Configurator implements ConfiguratorInterface
 
 
     /**
-     * Set config in loaded config array. Will not apply them to the set config repo.
+     * Set option in loaded config array. Will not apply them to the set config repo.
      *
      * @param $key
      * @param $value
@@ -92,7 +92,7 @@ class Configurator implements ConfiguratorInterface
 
 
     /**
-     * Apply loaded config array to set config repo
+     * Apply loaded options to app config
      *
      * @return $this
      */
@@ -111,7 +111,7 @@ class Configurator implements ConfiguratorInterface
 
 
     /**
-     * Save loaded config array to storage file
+     * Save loaded options to storage file
      *
      * @return void
      */

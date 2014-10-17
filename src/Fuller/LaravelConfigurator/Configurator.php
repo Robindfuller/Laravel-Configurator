@@ -34,7 +34,7 @@ class Configurator implements ConfiguratorInterface
      *
      * @var array
      */
-    protected $configArray;
+    protected $optionsArray;
 
     /**
      * @param Repository $appConfigRepo
@@ -56,11 +56,11 @@ class Configurator implements ConfiguratorInterface
     public function load()
     {
 
-        $this->configArray = [];
+        $this->optionsArray = [];
 
         if(file_exists($this->storageFile))
         {
-            $this->configArray = include $this->storageFile;
+            $this->optionsArray = include $this->storageFile;
         }
 
         return $this;
@@ -85,7 +85,7 @@ class Configurator implements ConfiguratorInterface
             return;
         }
 
-        $this->configArray[$key] = $value;
+        $this->optionsArray[$key] = $value;
 
         return $this;
     }
@@ -98,9 +98,9 @@ class Configurator implements ConfiguratorInterface
      */
     public function apply()
     {
-        if(is_array($this->configArray))
+        if(is_array($this->optionsArray))
         {
-            foreach($this->configArray as $key=>$value)
+            foreach($this->optionsArray as $key=>$value)
             {
                 $this->appConfigRepo->set($key, $value);
             }
@@ -117,7 +117,7 @@ class Configurator implements ConfiguratorInterface
      */
     public function save()
     {
-        $content = '<?php return ' . var_export($this->configArray, true) . ';';
+        $content = '<?php return ' . var_export($this->optionsArray, true) . ';';
         $bytesSaved = file_put_contents($this->storageFile, $content);
     }
 

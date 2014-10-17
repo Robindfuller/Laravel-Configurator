@@ -6,7 +6,7 @@ use Illuminate\Contracts\Config\Repository;
  * Custom configuration library interface for use with
  * Laravel's Config repository class
  *
- * Interface RepositoryInterface
+ * Interface ConfiguratorInterface
  * @package Fuller\LaravelConfigurator
  */
 interface ConfiguratorInterface

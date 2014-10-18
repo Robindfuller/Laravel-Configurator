@@ -50,7 +50,7 @@ Once you have set all custom options you will the need to save them:
 
 ### Applying (Automatic on next request)
 
-You may whish to apply the custom options just set, to the main app config in memory before the next request. For this you can use:
+You may wish to apply the custom options just set, to the main app config in memory before the next request. For this you can use:
 
 	\Configure::apply();
 

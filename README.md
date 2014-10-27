@@ -24,7 +24,7 @@ Next, update Composer from the Terminal:
 
 Once this operation completes, the final step is to add the service provider. Open `config/app.php`, and add a new item to the top of the providers array.
 
-    'fuller/laravel-configurator'
+    'Fuller\LaravelConfigurator\LaravelConfiguratorServiceProvider'
 
 ## Usage
 

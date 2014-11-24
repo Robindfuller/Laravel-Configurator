@@ -34,7 +34,7 @@ interface ConfiguratorInterface
      * @param $value
      * @return instance
      */
-    public function set($key, $value);
+    public function set($key, $value = null);
 
 
     /**

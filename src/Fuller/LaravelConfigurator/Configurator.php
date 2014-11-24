@@ -74,7 +74,7 @@ class Configurator implements ConfiguratorInterface
      * @param $value
      * @return $this
      */
-    public function set($key, $value)
+    public function set($key, $value = null)
     {
         if(is_array($key))
         {
